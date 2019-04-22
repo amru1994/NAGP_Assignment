@@ -6,7 +6,7 @@ import { ViewStudentDetailsComponent } from './view-student-details/view-student
 
 const routes: Routes = [
   {
-    path : '', redirectTo: 'studentsList', pathMatch: 'full'
+    path : '', redirectTo: 'login', pathMatch: 'full'
   },
   {
     path : 'studentsList', component: GridViewComponent
@@ -23,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 

@@ -24,6 +24,7 @@ export class AddNewStudentComponent implements OnInit {
                  private _updateServie: UpdateStudentDetailsService,private _detailsService: ViewStudentDetailsService,
                  private _documentsService: GetDocumentService) { }
 
+  //initializes the component and sets the document list.
   ngOnInit() {
     this.id = this._route.snapshot.params['id'];
     if (this.id){
@@ -32,6 +33,7 @@ export class AddNewStudentComponent implements OnInit {
     }
   }
 
+  //updates the document list on category change
   onCategoryChange(category:string): void{
     if (category == 'Domestic'){
       this._documentsService.getDomesticDocuments().subscribe(data => {
@@ -44,6 +46,7 @@ export class AddNewStudentComponent implements OnInit {
     }
   }
 
+  //submits the form and add/update the student
   submitForm(f: NgForm): void{
     this.student.studentName = f.value.studentName;
     this.student.fatherName = f.value.fatherName;
@@ -59,13 +62,15 @@ export class AddNewStudentComponent implements OnInit {
     this.student.policeClearance = f.value.policeClearance;
 
     if (!this.id){
-      this.uid = Math.floor((Math.random())+1);
+      this.uid = Math.floor((Math.random()*1000)+1);
       this.student.id = this.uid;
       this._addStudentService.create(this.student);
     }
     else{
       this.student.id = this.id;
       this._updateServie.updateStudent(this.id, this.student);
-    }   
+    }
+    
+    f.reset();
   }
 }

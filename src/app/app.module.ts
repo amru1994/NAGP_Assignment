@@ -10,6 +10,7 @@ import { GridViewComponent } from './grid-view/grid-view.component';
 import { AddNewStudentComponent } from './add-new-student/add-new-student.component';
 import { ViewStudentDetailsComponent } from './view-student-details/view-student-details.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    LoginModule,
     FormsModule,
     ReactiveFormsModule
   ],

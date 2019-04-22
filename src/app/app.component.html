@@ -1,10 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">{{title}}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
+    <a class="navbar-brand headingColor">{{title}}</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse" *ngIf="_authService.isAuthenticUser$ | async">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" [routerLink]="['/studentsList']">Students</a>
@@ -23,10 +20,7 @@
 
 <footer class="text-muted">
   <div class="container">
-    <p class="float-right">
-      <a href="#">Back to top</a>
-    </p>
     <p>This application is to onboard new students and to see details of them</p>
-    <p><a href="#">Visit the homepage</a>cl</p>
+    <p><a [routerLink]="['/studentsList']">Visit the homepage</a></p>
   </div>
 </footer>

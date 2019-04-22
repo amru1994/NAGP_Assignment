@@ -21,6 +21,6 @@ export class AddStudentService {
 
       localStorage.setItem( "studentsList", JSON.stringify( this.students ) );
 
-      this._router.navigate( [''] );
+      this._router.navigate( ['/studentsList'] );
   }
 }

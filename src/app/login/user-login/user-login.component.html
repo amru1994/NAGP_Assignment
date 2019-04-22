@@ -1,0 +1,21 @@
+<form #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && loginUser(loginForm)" class="form-signin marT200">
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <label for="username" class="sr-only">User Name</label>
+  <input type="text" name="username" class="form-control" placeholder="type admin as username"
+        [(ngModel)]="username" #usernameText="ngModel" required autofocus>
+  <div *ngIf="loginForm.submitted && usernameText.invalid" class="alert-danger">
+      <div [hidden]="!usernameText.errors.required">
+          Username is required
+      </div>
+  </div>
+  <label for="password" class="sr-only">Password</label>
+  <input type="password" name="password" class="form-control" placeholder="type admin as password"
+            [(ngModel)]="password" #passwordText="ngModel" required>
+  <div *ngIf="loginForm.submitted && passwordText.invalid" class="alert-danger">
+      <div [hidden]="!passwordText.errors.required">
+          Password is required
+      </div>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+</form>
