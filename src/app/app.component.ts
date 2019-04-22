@@ -8,5 +8,5 @@ import { AuthenticationService } from './services/authentication.service';
 })
 export class AppComponent {
   title = 'Students-Onboarding';
-  constructor(private _authService: AuthenticationService){}
+  constructor(public _authService: AuthenticationService){}
 }
