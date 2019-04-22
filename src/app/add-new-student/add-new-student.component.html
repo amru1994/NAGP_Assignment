@@ -1,0 +1,175 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <h3>{{title}}</h3>
+                <form #studentForm="ngForm" class="form-horizontal" (ngSubmit)="studentForm.form.valid && submitForm(studentForm)">
+                    <div class="form-group">
+                        <label for="studentName">Student Name</label>
+                        <input type="text" id="studentName" class="form-control"
+                                required
+                                name="studentName" [(ngModel)]="student.studentName"
+                                #studentName="ngModel" >
+                        <div *ngIf="studentForm.submitted && studentName.invalid" class="alert-danger">
+                            <div [hidden]="!studentName.errors.required">
+                                Name is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select class="form-control" name="category" [(ngModel)]="student.category" 
+                                    (change) = "onCategoryChange($event.target.value)" #category="ngModel">
+                            <option class="form-control" value="Domestic">Domestic</option>
+                            <option class="form-control" value="International">International</option>
+                        </select>
+                    </div>                    
+                    <div class="form-group">
+                        <label>Documents</label>
+                    </div>
+                    <div class="form-group marL50">
+                        <div class="col-sm-12">
+                            <span class="col-sm-4">
+                                <label for="domicile" class="float-left">Domicile</label><span class="star marL5" *ngIf="documents.domicile">*</span>
+                            </span>
+                            <span class="col-sm-8">
+                                <input id='domicile'type="checkbox" [required]="documents.domicile" class="float-right marR100" name="domicile" [(ngModel)]="student.domicile" value=false #domicile="ngModel" />                        
+                            </span>
+                        </div>
+                        <div *ngIf="studentForm.submitted && domicile.invalid && documents.domicile" class="alert-danger">
+                            <div [hidden]="!domicile.errors.required">
+                                Domicile is required
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="form-group marL50">
+                        <div class="col-sm-12">
+                            <span class="col-sm-4">
+                                <label for="marksheets" class="float-left">Marksheets</label><span class="star marL5" *ngIf="documents.marksheets">*</span>
+                            </span>
+                            <span class="col-sm-8">
+                                <input id='marksheets' type="checkbox" [required]="documents.marksheets" class="float-right marR100" name="marksheets" [(ngModel)]="student.marksheets" value=false #marksheets="ngModel" />                        
+                            </span>
+                        </div>
+                        <div *ngIf="studentForm.submitted && marksheets.invalid && documents.marksheets" class="alert-danger">
+                            <div [hidden]="!marksheets.errors.required">
+                                Marksheets are required
+                            </div>
+                        </div>                           
+                    </div>
+                    <div class="form-group marL50">
+                        <div class="col-sm-12">
+                            <span class="col-sm-4">
+                                <label for="policeClearance" class="float-left">Police Clearance</label><span class="star marL5" *ngIf="documents.policeClearance">*</span>
+                            </span>
+                            <span class="col-sm-8">
+                                <input id='policeClearance' [required]="documents.policeClearance" type="checkbox" class="float-right marR100"  name="policeClearance" [(ngModel)]="student.policeClearance" value=false #policeClearance="ngModel" />                        
+                            </span>
+                        </div>
+                        <div *ngIf="studentForm.submitted && policeClearance.invalid && documents.policeClearance" class="alert-danger">
+                            <div [hidden]="!policeClearance.errors.required">
+                                Police Clearance is required
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="form-group marL50">
+                        <div class="col-sm-12">
+                            <span class="col-sm-4">
+                                <label for="birthCertificate" class="float-left">Birth Certificate</label><span class="star marL5" *ngIf="documents.birthCertificate">*</span>
+                            </span>
+                            <span class="col-sm-8">
+                                <input id='birthCertificate' [required]="documents.birthCertificate" type="checkbox"  class="float-right marR100" name="birthCertificate" [(ngModel)]="student.birthCertificate" value=false #birthCertificate="ngModel" />                        
+                            </span>
+                        </div>
+                        <div *ngIf="studentForm.submitted && birthCertificate.invalid && documents.birthCertificate" class="alert-danger">
+                            <div [hidden]="!birthCertificate.errors.required">
+                                Birth certificate is required
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="form-group marL50">
+                        <div class="col-sm-12">
+                            <span class="col-sm-4">
+                                <label for="passport" class="float-left">Passport</label><span class="star marL5" *ngIf="documents.passport">*</span>
+                            </span>
+                            <span class="col-sm-8">
+                                <input id='passport' [required]="documents.passport" type="checkbox" class="float-right marR100" name="passport" [(ngModel)]="student.passport" value=false #passport="ngModel" />                        
+                            </span>
+                        </div>
+                        <div *ngIf="studentForm.submitted && passport.invalid && documents.passport" class="alert-danger">
+                            <div [hidden]="!passport.errors.required">
+                                Passport is required
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="form-group marL50">
+                        <div class="col-sm-12">
+                            <span class="col-sm-4">
+                                <label for="declaration" class="float-left">Declaration</label><span class="star marL5" *ngIf="documents.declaration">*</span>
+                            </span>
+                            <span class="col-sm-8">
+                                <input id='declaration' [required]="documents.declaration" type="checkbox" class="float-right marR100"  name="declaration" [(ngModel)]="student.declaration" value=false #declaration="ngModel" />                        
+                            </span>
+                        </div>
+                        <div *ngIf="studentForm.submitted && declaration.invalid && documents.declaration" class="alert-danger">
+                            <div [hidden]="!declaration.errors.required">
+                                Declaration is required
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" class="form-control"
+                                required
+                                name="dob" [(ngModel)]="student.dob"
+                                #dob="ngModel" >
+                        <div *ngIf="studentForm.submitted && dob.invalid" class="alert-danger">
+                            <div [hidden]="!dob.errors.required">
+                                Date of birth is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="fatherName">Father Name</label>
+                        <input type="text" id="fatherName" class="form-control"
+                                required
+                                name="fatherName" [(ngModel)]="student.fatherName"
+                                #fatherName="ngModel" >
+                        <div *ngIf="studentForm.submitted && fatherName.invalid" class="alert-danger">
+                            <div [hidden]="!fatherName.errors.required">
+                                Father name is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="motherName">Mother's Name</label>
+                        <input type="text" id="motherName" class="form-control"
+                                required
+                                name="motherName" [(ngModel)]="student.motherName"
+                                #motherName="ngModel" >
+                        <div *ngIf="studentForm.submitted && motherName.invalid" class="alert-danger">
+                            <div [hidden]="!motherName.errors.required">
+                                Mother name is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastClassScore">Last Class Score</label>
+                        <input type="number" id="lastClassScore" class="form-control"
+                                required
+                                name="lastClassScore" [(ngModel)]="student.lastClassScore"
+                                #lastClassScore="ngModel" >
+                        <div *ngIf="studentForm.submitted && lastClassScore.invalid" class="alert-danger">
+                            <div [hidden]="!lastClassScore.errors.required">
+                                Last class score is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default btn-success">Onboard</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

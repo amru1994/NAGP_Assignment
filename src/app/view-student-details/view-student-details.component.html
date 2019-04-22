@@ -1,0 +1,125 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <h3>{{title}}</h3>
+                <form class="form-horizontal" *ngIf='student'>
+                    <div class="form-group">
+                        <label for="studentName">Student Name</label>
+                        <input type="text" id="studentName" class="form-control"
+                                required
+                                name="studentName" [(ngModel)]="student.studentName"
+                                #studentName="ngModel" disabled >
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <input type="text" id="category" class="form-control"
+                                required
+                                name="category" [(ngModel)]="student.category"
+                                #category="ngModel" disabled/>                          
+                    </div>                    
+                    <div class="form-group">
+                        <label>Documents</label>
+                    </div>
+                    <div class="form-group marL50">
+                        <div class="col-sm-12">
+                            <span class="col-sm-4">
+                                <label for="domicile" class="float-left">Domicile</label>
+                            </span>
+                            <span class="col-sm-8">
+                                <input id='domicile'type="checkbox" required class="float-right marR100" name="domicile"
+                                       [(ngModel)]="student.domicile" value=false #domicile="ngModel" disabled />                        
+                            </span>
+                        </div>                        
+                    </div>
+                    <div class="form-group marL50">
+                        <div class="col-sm-12">
+                            <span class="col-sm-4">
+                                <label for="marksheets" class="float-left">Marksheets</label>
+                            </span>
+                            <span class="col-sm-8">
+                                <input id='marksheets' type="checkbox" required class="float-right marR100"
+                                     name="marksheets" [(ngModel)]="student.marksheets" value=false #marksheets="ngModel" disabled />                        
+                            </span>
+                        </div>                          
+                    </div>
+                    <div class="form-group marL50">
+                        <div class="col-sm-12">
+                            <span class="col-sm-4">
+                                <label for="policeClearance" class="float-left">Police Clearance</label>
+                            </span>
+                            <span class="col-sm-8">
+                                <input id='policeClearance' required type="checkbox" class="float-right marR100"
+                                    name="policeClearance" [(ngModel)]="student.policeClearance" value=false #policeClearance="ngModel" disabled />                        
+                            </span>
+                        </div>                       
+                    </div>
+                    <div class="form-group marL50">
+                        <div class="col-sm-12">
+                            <span class="col-sm-4">
+                                <label for="birthCertificate" class="float-left">Birth Certificate</label>
+                            </span>
+                            <span class="col-sm-8">
+                                <input id='birthCertificate' required type="checkbox"  class="float-right marR100"
+                                   name="birthCertificate" [(ngModel)]="student.birthCertificate" value=false #birthCertificate="ngModel" disabled />                        
+                            </span>
+                        </div>                       
+                    </div>
+                    <div class="form-group marL50">
+                        <div class="col-sm-12">
+                            <span class="col-sm-4">
+                                <label for="passport" class="float-left">Passport</label>
+                            </span>
+                            <span class="col-sm-8">
+                                <input id='passport' required type="checkbox" class="float-right marR100" name="passport"
+                                   [(ngModel)]="student.passport" value=false #passport="ngModel" disabled/>                        
+                            </span>
+                        </div>                        
+                    </div>
+                    <div class="form-group marL50">
+                        <div class="col-sm-12">
+                            <span class="col-sm-4">
+                                <label for="declaration" class="float-left">Declaration</label>
+                            </span>
+                            <span class="col-sm-8">
+                                <input id='declaration' required type="checkbox" class="float-right marR100"  name="declaration"
+                                     [(ngModel)]="student.declaration" value=false #declaration="ngModel" disabled />                        
+                            </span>
+                        </div>                       
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" class="form-control"
+                                required
+                                name="dob" [(ngModel)]="student.dob"
+                                #dob="ngModel" disabled >
+                    </div>
+                    <div class="form-group">
+                        <label for="fatherName">Father Name</label>
+                        <input type="text" id="fatherName" class="form-control"
+                                required
+                                name="fatherName" [(ngModel)]="student.fatherName"
+                                #fatherName="ngModel" disabled >
+                    </div>
+                    <div class="form-group">
+                        <label for="motherName">Mother's Name</label>
+                        <input type="text" id="motherName" class="form-control"
+                                required
+                                name="motherName" [(ngModel)]="student.motherName"
+                                #motherName="ngModel" disabled >
+                    </div>
+                    <div class="form-group">
+                        <label for="lastClassScore">Last Class Score</label>
+                        <input type="number" id="lastClassScore" class="form-control"
+                                required
+                                name="lastClassScore" [(ngModel)]="student.lastClassScore"
+                                #lastClassScore="ngModel" disabled >
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" [routerLink]="['']" class="btn btn-default btn-success">Back</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

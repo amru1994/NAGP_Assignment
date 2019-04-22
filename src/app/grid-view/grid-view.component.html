@@ -1,0 +1,41 @@
+<div class="album py-5 bg-light marT100">
+  <div class="container">    
+    <div class="row">
+      <div class="col-sm-4"><h2>{{title}}</h2></div>
+      <div class="col-sm-4 float-right">
+          <select class="form-control" name="category" [(ngModel)]="selectedCategory" 
+                (change) = "onCategoryChange($event.target.value)" #category="ngModel">
+          <option *ngFor="let category of categories" [value]="category"> {{ category }} </option>
+        </select>
+      </div>
+      <div class="col-sm-4 float-right">
+          <input type="text" class="form-control" [(ngModel)]="searchText" id="search" placeholder="Search">
+      </div>
+    </div>
+    <div class="row marT30">
+        <div class="col-md-4" *ngFor= 'let student of filteredStudents | filter: searchText'>
+          <div class="card mb-4 box-shadow" [ngClass]="{'background-green': student.category == 'Domestic', 'background-orange': student.category == 'International'}">
+            <div class="card-body">
+              <h3>{{student.studentName}}</h3>
+              <div>
+                  <label class="font-weight-bold">Fathers Name: &nbsp;</label> <span>{{student.fatherName}}</span>
+              </div>
+              <div>
+                  <label class="font-weight-bold">Mothers Name: &nbsp;</label> <span>{{student.motherName}}</span>
+              </div>
+              <div>
+                  <label class="font-weight-bold">Category: &nbsp;</label> <span>{{student.category}}</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group marT10">
+                  <button type="button" [routerLink]="['/studentDetails', student.id]" class="btn btn-sm btn-outline-secondary btn-primary marR5"><span class="font-weight-bold">View</span></button>
+                  <button type="button" [routerLink]="['/editStudentDetails', student.id]" class="btn btn-sm btn-outline-secondary btn-info marR5"><span class="font-weight-bold">Edit</span></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary btn-danger marR5" (click)="deleteStudent(student.id)"><span class="font-weight-bold">Delete</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
