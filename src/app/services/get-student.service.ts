@@ -11,7 +11,7 @@ export class GetStudentService {
 
   students:IStudent[];
 
-  private _dataUrl = '../../assets/JSON/student-list.json' ;
+  private _dataUrl = 'assets/JSON/student-list.json' ;
 
   constructor(private _http: HttpClient) { }
 

@@ -12,8 +12,8 @@ export class GetDocumentService {
 
   documents:IDocument;
 
-  private _domesticDataUrl = '../../assets/JSON/domestic-documents.json' ;
-  private _internationalDataUrl = '../../assets/JSON/international-documents.json' ;
+  private _domesticDataUrl = 'assets/JSON/domestic-documents.json' ;
+  private _internationalDataUrl = 'assets/JSON/international-documents.json' ;
 
   constructor(private _http: HttpClient) { }
 
