@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable} from 'rxjs';
 import {IDocument} from '../interfaces/documents';
-import { IStudent } from '../interfaces/student';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +11,8 @@ export class GetDocumentService {
 
   documents:IDocument;
 
-  private _domesticDataUrl = 'assets/JSON/domestic-documents.json' ;
-  private _internationalDataUrl = 'assets/JSON/international-documents.json' ;
+  private _domesticDataUrl = '/NAGP_Assignment/assets/JSON/domestic-documents.json' ;
+  private _internationalDataUrl = '/NAGP_Assignment/assets/JSON/international-documents.json' ;
 
   constructor(private _http: HttpClient) { }
 
